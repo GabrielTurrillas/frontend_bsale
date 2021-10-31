@@ -1,8 +1,10 @@
 //SELECTORS
 const gallery = document.getElementById('gallery')
+const searchBar = document.getElementById('search-bar')
+const searchBtn = document.getElementById('search-btn')
 
 //EVENT LISTENERS
-//getProductBtn.addEventListener('click', getProductData);
+searchBtn.addEventListener('click', searchAndDisplay);
 
 
 //FUNCTIONS
@@ -44,7 +46,7 @@ const createProductCard = (product) => {
   if (product.discount) {
     //Value of prices
     const oldPrice = product.price
-    const newPrice = product.price - (product.price * product.discount / 100)
+    const newPrice = Math.trunc(product.price - (product.price * product.discount / 100))
     //creation of DOM elements
     const priceNoDiscount = document.createElement('h4')
     priceNoDiscount.innerText = `$${oldPrice}`
@@ -82,6 +84,11 @@ const fillGallery = (products) => {
     const card = createProductCard(product)
     gallery.appendChild(card)
   })
+}
+
+function searchAndDisplay() {
+  const searchValue = searchBar.value
+  console.log(searchValue)
 }
 
 //FUNCTION CALLS
