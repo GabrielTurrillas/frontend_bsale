@@ -8,11 +8,18 @@ searchBtn.addEventListener('click', searchAndDisplay);
 
 
 //FUNCTIONS
-const getProductData = async () => {
-  const products = await axios.get('https://backend-bsale.vercel.app/api/product')
+const getProductData = async (parameter = '') => {
+  const products = await axios.get(`https://backend-bsale.vercel.app/api/product/${parameter}`)
     .then(res => res.data)
   return products
 };
+
+const getCategoryData = async () => {
+  const categories = await axios.get(`https://backend-bsale.vercel.app/api/category`)
+    .then(res => res.data)
+  console.log(categories)
+  return categories
+}
 
 const createProductCard = (product) => {
   //Card div
@@ -47,7 +54,7 @@ const createProductCard = (product) => {
     //Value of prices
     const oldPrice = product.price
     const newPrice = Math.trunc(product.price - (product.price * product.discount / 100))
-    //creation of DOM elements
+    //Price DOM elements
     const priceNoDiscount = document.createElement('h4')
     priceNoDiscount.innerText = `$${oldPrice}`
     priceNoDiscount.classList.add('price-no-discount')
@@ -86,11 +93,15 @@ const fillGallery = (products) => {
   })
 }
 
+//Search button function
 function searchAndDisplay() {
-  const searchValue = searchBar.value
-  console.log(searchValue)
+  //Gallery cleaning
+  gallery.innerHTML = ''
+  //Filling Gallery
+  const parameter = searchBar.value
+  getProductData(parameter).then(products => fillGallery(products))
 }
 
 //FUNCTION CALLS
 getProductData().then(products => fillGallery(products))
-
+getCategoryData()
