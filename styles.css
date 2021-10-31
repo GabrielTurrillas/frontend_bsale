@@ -1,5 +1,6 @@
 :root {
   --container-margin: 20rem;
+  --color-black:rgb(32, 32, 32);
 }
 
 * {
@@ -16,7 +17,7 @@ body {
 }
 
 header {
-  background-color: rgb(32, 32, 32);
+  background-color: var(--color-black);
   height: 5rem;
   padding:1rem var(--container-margin);
   display:flex;
@@ -24,9 +25,50 @@ header {
   align-items: center;
 }
 
+select { 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+
+.select {
+  margin-right:3rem;
+  position:relative;
+  overflow: hidden;
+}
+
+select {
+  color: var(--color-black);
+  width:10rem;
+  cursor:pointer;
+  padding:0.5rem;
+  border-radius:5px;
+}
+
+.select::after{
+  content:"\25BC";
+  position: absolute;
+  background:white;
+  color:var(--color-black);
+  top:0;
+  right:0;
+  padding:0.25rem;
+  pointer-events: none;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  transition: all 0.3s ease;
+}
+
 .search-bar-div{
   display: flex;
   align-items: center;
+}
+
+.select:hover::after{
+  background: var(--color-black);
+  color:white;
 }
 
 #search-btn {

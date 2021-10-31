@@ -1,13 +1,20 @@
-//SELECTORS
+/************************/
+/*       SELECTORS      */
+/************************/
 const gallery = document.getElementById('gallery')
 const searchBar = document.getElementById('search-bar')
 const searchBtn = document.getElementById('search-btn')
+const filterProduct = document.querySelector('.filter-product')
 
-//EVENT LISTENERS
+/************************/
+/*    EVENT LISTENERS   */
+/************************/
 searchBtn.addEventListener('click', searchAndDisplay);
+filterProduct.addEventListener('click', filterByCategory);
 
-
-//FUNCTIONS
+/************************/
+/*      FUNCTIONS       */
+/************************/
 const getProductData = async (parameter = '') => {
   const products = await axios.get(`https://backend-bsale.vercel.app/api/product/${parameter}`)
     .then(res => res.data)
@@ -19,6 +26,15 @@ const getCategoryData = async () => {
     .then(res => res.data)
   console.log(categories)
   return categories
+}
+
+const createCategoryFilter = (categories) => {
+  categories.forEach(category => {
+    const option = document.createElement('option')
+    option.value = category.id
+    option.innerText = category.name
+    filterProduct.appendChild(option)
+  })
 }
 
 const createProductCard = (product) => {
@@ -75,8 +91,6 @@ const createProductCard = (product) => {
     price.innerText = `$${product.price}`
     textArea.appendChild(price)
   }
-
-
   //Append areas to card
   card.appendChild(titleArea)
   card.appendChild(imgArea)
@@ -102,6 +116,12 @@ function searchAndDisplay() {
   getProductData(parameter).then(products => fillGallery(products))
 }
 
-//FUNCTION CALLS
+function filterByCategory(e) {
+  console.log(e.target.value)
+}
+
+/************************/
+/*    FUNCTION CALLS    */
+/************************/
 getProductData().then(products => fillGallery(products))
-getCategoryData()
+getCategoryData().then(categories => createCategoryFilter(categories))
