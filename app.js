@@ -12,29 +12,55 @@ const getProductData = async () => {
   return products
 };
 
+const createProductCard = (product) => {
+  //Card div
+  const card = document.createElement('div');
+  card.classList.add('card')
+
+  //Title area
+  const titleArea = document.createElement('div')
+  titleArea.classList.add('title-area')
+
+  //Title
+  const title = document.createElement('h3');
+  title.classList.add('title')
+  title.innerText = product.name
+  titleArea.appendChild(title)
+
+  //Img area
+  const imgArea = document.createElement('div')
+  imgArea.classList.add('img-area')
+
+  //Img
+  const img = document.createElement('img');
+  img.src = product.url_image
+  img.alt = 'Image not available'
+  imgArea.appendChild(img)
+
+  //Text area
+  const textArea = document.createElement('div')
+  textArea.classList.add('text-area')
+
+  // price
+  const price = document.createElement('h4')
+  price.innerText = `$${product.price}`
+  textArea.appendChild(price)
+
+  //Append areas to card
+  card.appendChild(titleArea)
+  card.appendChild(imgArea)
+  card.appendChild(textArea)
+
+  //Append card to gallery
+  gallery.appendChild(card)
+}
+
 const fillGallery = (products) => {
   console.log(products)
 
   cards = [];
   products.forEach((product) => {
-    //Card div
-    const cardDiv = document.createElement('div');
-    cardDiv.classList.add('card')
-
-    //Card title
-    const cardTitle = document.createElement('h3');
-    cardTitle.classList.add('title')
-    cardTitle.innerText = product.name
-    cardDiv.appendChild(cardTitle)
-
-    //Card Img
-    const cardImg = document.createElement('img');
-    cardImg.src = product.url_image
-    cardImg.alt = 'Image not available'
-    cardDiv.appendChild(cardImg)
-
-    // Append card div
-    gallery.appendChild(cardDiv)
+    createProductCard(product)
   })
 }
 
