@@ -1,5 +1,66 @@
-.container {
+:root {
+  --container-margin: 20rem;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(120deg, #f6d365, #ec5d35);
+  color:white;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+header {
   display:flex;
+  background-color: rgb(32, 32, 32);
+  height: 5rem;
+  padding:1rem var(--container-margin);
+}
+
+img {
+  width:65%;
+  height:auto;
+  align-self: center;
+}
+
+#gallery {
+  display: grid;
+  column-gap: 10rem;
+  row-gap: 5rem;
+  margin:3rem var(--container-margin);
+  grid-auto-rows: max-content;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 13fr));
+}
+
+.card {
+  background-color: white;
+  color:black;
+  border-radius: 15px;
+  text-align: center;
+  width: 20rem;
+  height:30rem;
+  padding:2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-top: 5rem;
+}
+
+.title{
+  margin:0 3rem;
+}
+
+.text-area{
+  width:100%;
+  display: flex;
+  justify-content: center;
+}
+
+.text-area, h4{
+  margin-right: 0.5rem;
 }
