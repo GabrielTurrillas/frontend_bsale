@@ -23,7 +23,6 @@ const createProductCard = (product) => {
 
   //Title
   const title = document.createElement('h3');
-  title.classList.add('title')
   title.innerText = product.name
   titleArea.appendChild(title)
 
@@ -42,25 +41,46 @@ const createProductCard = (product) => {
   textArea.classList.add('text-area')
 
   // price
-  const price = document.createElement('h4')
-  price.innerText = `$${product.price}`
-  textArea.appendChild(price)
+  if (product.discount) {
+    //Value of prices
+    const oldPrice = product.price
+    const newPrice = product.price - (product.price * product.discount / 100)
+    //creation of DOM elements
+    const priceNoDiscount = document.createElement('h4')
+    priceNoDiscount.innerText = `$${oldPrice}`
+    priceNoDiscount.classList.add('price-no-discount')
+
+    const priceWithDiscount = document.createElement('h4')
+    priceWithDiscount.innerText = `$${newPrice}`
+    priceWithDiscount.classList.add('price-with-discount')
+
+    const discount = document.createElement('h4')
+    discount.innerText = `${product.discount}%OFF`
+    discount.classList.add('discount')
+
+    textArea.appendChild(priceNoDiscount)
+    textArea.appendChild(priceWithDiscount)
+    textArea.appendChild(discount)
+  } else {
+    const price = document.createElement('h4')
+    price.innerText = `$${product.price}`
+    textArea.appendChild(price)
+  }
+
 
   //Append areas to card
   card.appendChild(titleArea)
   card.appendChild(imgArea)
   card.appendChild(textArea)
 
-  //Append card to gallery
-  gallery.appendChild(card)
+  return card
 }
 
 const fillGallery = (products) => {
-  console.log(products)
-
   cards = [];
   products.forEach((product) => {
-    createProductCard(product)
+    const card = createProductCard(product)
+    gallery.appendChild(card)
   })
 }
 

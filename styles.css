@@ -43,7 +43,7 @@ img {
   border-radius: 15px;
   text-align: center;
   width: 25rem;
-  height:50rem;
+  height:55rem;
   padding:2rem 0;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -66,6 +66,7 @@ img {
 .title-area, h3 {
   font-size: 1.5rem;
   margin:0 2rem;
+  margin-bottom: 3rem;
 }
 
 
@@ -78,9 +79,11 @@ img {
   align-items: center;
 }
 
+
 .text-area{
   width:100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 /*   background-color:yellow; */
@@ -90,4 +93,21 @@ img {
 .text-area, h4{
   margin-right: 0.5rem;
   font-size: 3rem;
+}
+
+.price-no-discount{
+  font-size: 2.5rem;
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+
+.price-with-discount{
+  font-size: 3.5rem;
+  color:red;
+}
+
+.discount {
+  color:red;
+  font-size: 3rem;
+  transform:rotateZ(-5deg);
 }
