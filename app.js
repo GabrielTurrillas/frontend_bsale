@@ -7,12 +7,12 @@ const searchBtn = document.getElementById('search-btn')
 const filterProduct = document.querySelector('.filter-product')
 
 
-
 /************************/
 /*    EVENT LISTENERS   */
 /************************/
 searchBtn.addEventListener('click', searchAndDisplay);
 filterProduct.addEventListener('click', filterByCategory);
+searchBar.addEventListener('keyup', clickOnEnter)
 
 
 
@@ -120,7 +120,6 @@ const fillGallery = (products) => {
   })
 }
 
-
 //Search button function
 function searchAndDisplay() {
   //Filling Gallery
@@ -137,6 +136,12 @@ function filterByCategory(e) {
   }
 }
 
+function clickOnEnter(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    searchBtn.click();
+  }
+}
 
 /************************/
 /*    FUNCTION CALLS    */
