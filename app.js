@@ -5,6 +5,7 @@ const gallery = document.getElementById('gallery')
 const searchBar = document.getElementById('search-bar')
 const searchBtn = document.getElementById('search-btn')
 const filterProduct = document.querySelector('.filter-product')
+const logo = document.getElementById('logo')
 
 
 /************************/
@@ -13,7 +14,7 @@ const filterProduct = document.querySelector('.filter-product')
 searchBtn.addEventListener('click', searchAndDisplay);
 filterProduct.addEventListener('click', filterByCategory);
 searchBar.addEventListener('keyup', clickOnEnter)
-
+logo.addEventListener('click', clickOnLogo)
 
 
 /************************/
@@ -164,6 +165,9 @@ function clickOnEnter(e) {
   }
 }
 
+function clickOnLogo(e) {
+  getProductData().then(products => fillGallery(products))
+}
 
 /************************/
 /*    FUNCTION CALLS    */

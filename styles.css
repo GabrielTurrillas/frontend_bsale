@@ -25,6 +25,10 @@ header {
   align-items: center;
 }
 
+#logo {
+  cursor: pointer;
+}
+
 select { 
   -webkit-appearance: none;
   -moz-appearance: none;
