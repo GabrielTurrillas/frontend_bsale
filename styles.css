@@ -1,5 +1,5 @@
 :root {
-  --container-margin: 20rem;
+  --container-margin: 15rem;
   --color-black:rgb(32, 32, 32);
 }
 
@@ -96,10 +96,11 @@ select {
 .card {
   background-color: white;
   color:black;
-  border-radius: 15px;
+  border-radius: 10px;
+  box-shadow: 0 8px 8px -4px black;
   text-align: center;
-  width: 25rem;
-  height:55rem;
+  width: 20rem;
+  height:40rem;
   padding:2rem 0;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -116,10 +117,10 @@ select {
   display: flex;
   height:100%;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.title-area, h3 {
+.title-area h3 {
   font-size: 1.5rem;
   margin:0 2rem;
 }
@@ -152,22 +153,25 @@ img {
 
 .text-area h4{
   margin-right: 0.5rem;
-  font-size: 3rem;
+}
+
+.normal-price {
+  font-size: 2.5rem;
 }
 
 .price-no-discount{
-  font-size: 2.5rem;
+  font-size: 2rem;
   opacity: 0.3;
   text-decoration: line-through;
 }
 
 .price-with-discount{
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   color:red;
 }
 
 .discount {
   color:red;
-  font-size: 3rem;
+  font-size: 2.5rem;
   transform:rotateZ(-5deg);
 }

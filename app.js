@@ -6,11 +6,15 @@ const searchBar = document.getElementById('search-bar')
 const searchBtn = document.getElementById('search-btn')
 const filterProduct = document.querySelector('.filter-product')
 
+
+
 /************************/
 /*    EVENT LISTENERS   */
 /************************/
 searchBtn.addEventListener('click', searchAndDisplay);
 filterProduct.addEventListener('click', filterByCategory);
+
+
 
 /************************/
 /*      FUNCTIONS       */
@@ -64,7 +68,7 @@ const createProductCard = (product) => {
   //Img
   const img = document.createElement('img');
   img.src = product.url_image
-  img.alt = 'Image not available'
+  img.alt = 'Imagen no disponible'
   imgArea.appendChild(img)
 
   //Text area
@@ -95,6 +99,7 @@ const createProductCard = (product) => {
   } else {
     const price = document.createElement('h4')
     price.innerText = `$${product.price}`
+    price.classList.add('normal-price')
     textArea.appendChild(price)
   }
   //Append areas to card
@@ -115,6 +120,7 @@ const fillGallery = (products) => {
   })
 }
 
+
 //Search button function
 function searchAndDisplay() {
   //Filling Gallery
@@ -130,6 +136,7 @@ function filterByCategory(e) {
     getProductByCategory(e.target.value).then(products => fillGallery(products))
   }
 }
+
 
 /************************/
 /*    FUNCTION CALLS    */
