@@ -22,12 +22,26 @@ searchBar.addEventListener('keyup', clickOnEnter)
 const getProductData = async (parameter = '') => {
   const products = await axios.get(`https://backend-bsale.vercel.app/api/product/${parameter}`)
     .then(res => res.data)
+    .catch((error) => {
+      if (error.response) {
+        console.log(error.response.data)
+        console.log(error.response.status)
+        console.log(error.response.headers)
+      }
+    })
   return products
 };
 
 const getCategoryData = async () => {
   const categories = await axios.get(`https://backend-bsale.vercel.app/api/category`)
     .then(res => res.data)
+    .catch((error) => {
+      if (error.response) {
+        console.log(error.response.data)
+        console.log(error.response.status)
+        console.log(error.response.headers)
+      }
+    })
   return categories
 }
 
@@ -35,6 +49,13 @@ const getProductByCategory = async (category) => {
   console.log(category)
   const products = await axios.get(`https://backend-bsale.vercel.app/api/product/category/${category}`)
     .then(res => res.data)
+    .catch((error) => {
+      if (error.response) {
+        console.log(error.response.data)
+        console.log(error.response.status)
+        console.log(error.response.headers)
+      }
+    })
   return products
 }
 
@@ -142,6 +163,7 @@ function clickOnEnter(e) {
     searchBtn.click();
   }
 }
+
 
 /************************/
 /*    FUNCTION CALLS    */
