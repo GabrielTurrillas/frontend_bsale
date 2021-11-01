@@ -24,8 +24,14 @@ const getProductData = async (parameter = '') => {
 const getCategoryData = async () => {
   const categories = await axios.get(`https://backend-bsale.vercel.app/api/category`)
     .then(res => res.data)
-  console.log(categories)
   return categories
+}
+
+const getProductByCategory = async (category) => {
+  console.log(category)
+  const products = await axios.get(`https://backend-bsale.vercel.app/api/product/category/${category}`)
+    .then(res => res.data)
+  return products
 }
 
 const createCategoryFilter = (categories) => {
@@ -100,6 +106,8 @@ const createProductCard = (product) => {
 }
 
 const fillGallery = (products) => {
+  //Clean gallery
+  gallery.innerHTML = ''
   cards = [];
   products.forEach((product) => {
     const card = createProductCard(product)
@@ -109,8 +117,6 @@ const fillGallery = (products) => {
 
 //Search button function
 function searchAndDisplay() {
-  //Gallery cleaning
-  gallery.innerHTML = ''
   //Filling Gallery
   const parameter = searchBar.value
   getProductData(parameter).then(products => fillGallery(products))
@@ -118,6 +124,11 @@ function searchAndDisplay() {
 
 function filterByCategory(e) {
   console.log(e.target.value)
+  if (e.target.value === 'All') {
+    getProductData().then(products => fillGallery(products))
+  } else {
+    getProductByCategory(e.target.value).then(products => fillGallery(products))
+  }
 }
 
 /************************/
