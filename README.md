@@ -10,8 +10,8 @@ getProductData(parameter:  string)
 Genera una API call con un parámetro opcional. Sin parámetro busca todos los registros de la tabla product.
 Con parámetro retorna un conjunto de registros que contienen ese parámetro en el campo 'name'.
 
-```getCategoryData()```<br />
-<pre>  Genera una Api call que retorna todos los registros de la tabla 'category'.</pre>
+<pre>```getCategoryData()```<br />
+  Genera una Api call que retorna todos los registros de la tabla 'category'.</pre>
 
 ```getProductByCategory(category: int)```<br />
 <pre>  Genera una Api call que retorna un conjunto de registros de la tabla 'product' que contienen </pre>
