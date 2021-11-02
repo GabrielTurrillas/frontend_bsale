@@ -10,7 +10,7 @@ getProductData(parameter:  string)
 Genera una API call con un parámetro opcional. Sin parámetro busca todos los registros de la tabla product.
 Con parámetro retorna un conjunto de registros que contienen ese parámetro en el campo 'name'.
 
-getCategoryData()<br />
+<p style='color:red'>getCategoryData()</p><br />
   Genera una Api call que retorna todos los registros de la tabla 'category'.
 
 getProductByCategory(category: int)<br />
@@ -38,6 +38,6 @@ clickOnEnter(event)<br />
 clickOnLogo()<br />
   función que llama llena la galería con todos los elementos de la tabla "product" al hacer clic en el logo de la   aplicación
 
-Librerías utilizadas:
-Axios
+Librerías utilizadas:<br />
+Axios<br />
 Font Awesome
