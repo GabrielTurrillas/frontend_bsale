@@ -37,7 +37,7 @@ Con parámetro retorna un conjunto de registros que contienen ese parámetro en 
 &ensp;&ensp;&ensp;&ensp;función para pasar a event listener y traducir presionar la tecla enter a "click"
 
 ```clickOnLogo()```<br />
-&ensp;&ensp;&ensp;&ensp;función que llama llena la galería con todos los elementos de la tabla "product" al hacer clic en el logo de la   aplicación
+&ensp;&ensp;&ensp;&ensp;función que llama llena la galería con todos los elementos de la tabla "product" al hacer clic en el logo<br />de la&ensp;&ensp;&ensp;&ensp;aplicación
 
 Librerías utilizadas:<br />
 Axios<br />
