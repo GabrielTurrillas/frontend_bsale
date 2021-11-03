@@ -29,6 +29,11 @@ header {
   cursor: pointer;
 }
 
+#categories-btn {
+  margin-right: 1rem;
+  cursor: pointer;  
+}
+
 select { 
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -5,6 +5,7 @@ const gallery = document.getElementById('gallery')
 const searchBar = document.getElementById('search-bar')
 const searchBtn = document.getElementById('search-btn')
 const filterProduct = document.querySelector('.filter-product')
+const categoriesBtn = document.getElementById('categories-btn')
 const logo = document.getElementById('logo')
 
 
@@ -12,10 +13,9 @@ const logo = document.getElementById('logo')
 /*    EVENT LISTENERS   */
 /************************/
 searchBtn.addEventListener('click', searchAndDisplay);
-filterProduct.addEventListener('click', filterByCategory);
-searchBar.addEventListener('keyup', clickOnEnter)
-logo.addEventListener('click', clickOnLogo)
-
+searchBar.addEventListener('keyup', clickOnEnter);
+logo.addEventListener('click', clickOnLogo);
+categoriesBtn.addEventListener('click', filterByCategory);
 
 /************************/
 /*      FUNCTIONS       */
@@ -150,11 +150,11 @@ function searchAndDisplay() {
 }
 
 function filterByCategory(e) {
-  console.log(e.target.value)
-  if (e.target.value === 'All') {
+  console.log(filterProduct.value)
+  if (filterProduct.value === 'All') {
     getProductData().then(products => fillGallery(products))
   } else {
-    getProductByCategory(e.target.value).then(products => fillGallery(products))
+    getProductByCategory(filterProduct.value).then(products => fillGallery(products))
   }
 }
 
